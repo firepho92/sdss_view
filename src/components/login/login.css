@@ -1,0 +1,12 @@
+.login-container{
+  height: 100%;
+  width: 400px !important;
+}
+
+.login-row{
+  height: 100%;
+}
+
+.login-col{
+  padding: 10px;
+}

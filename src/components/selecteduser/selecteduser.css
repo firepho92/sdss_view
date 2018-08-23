@@ -1,0 +1,20 @@
+td{
+  font-size: 1.3em;
+  line-height: 180%;
+}
+.file-name{
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.file-name:hover{
+  text-decoration: underline;
+}
+
+.user-files{
+  max-height: 348px;
+}
+
+.table-wrapper{
+  overflow-y: scroll;
+}

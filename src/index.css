@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  height: 800px;
+  background-color: #242229 !important;
+  color: #FBFBFB !important;
+}
+
+.App{
+  height: 100% !important;
+}
+
+.btn-secondary{
+  background-color: #2D2E36 !important;
+  border-color: #2D2E36 !important;
+}
+
+.btn-secondary:hover{
+  background-color: #3E3F47 !important;
+}
+
+.text-input{
+  background-color: #2D2E36 !important;
+  color: #FBFBFB !important;
+  border: none !important;
+}
+
+.form-control{
+  border-radius: 1rem !important;
+}
+
+.form-control:focus{
+  box-shadow: 0 0 0 0.2rem rgba(62, 63, 71, 1) !important;
+}

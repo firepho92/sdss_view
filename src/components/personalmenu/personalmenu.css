@@ -1,0 +1,14 @@
+.personal-menu{
+  color: #797979;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  position: fixed;
+  right: 2em;
+  top: 1em;
+  transition: all 0.15s ease-in-out;
+}
+
+.personal-menu:hover{
+  color: #FBFBFB;
+  text-decoration: underline;
+}
