@@ -4,7 +4,6 @@ import Token from './token.js';
 import Login from './components/login/login';
 import Documents from './components/documents/documents';
 import ServerConfig from './config/server_config';
-import PersonalMenu from './components/personalmenu/personalmenu';
 import SelectedUser from './components/selecteduser/selecteduser';
 import PersonalProfile from './components/personalprofile/personalprofile';
 import Usuario from './models/usuario';
@@ -27,6 +26,8 @@ class App extends Component {
     this.handleSelfProfile = this.handleSelfProfile.bind(this);
     this.backHome = this.backHome.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+    this.updateLoggedUser = this.updateLoggedUser.bind(this);
+    this.updateSelectedUser = this.updateSelectedUser.bind(this);
   }
 
   componentWillMount(){
@@ -92,6 +93,40 @@ class App extends Component {
     });
   }
 
+  updateLoggedUser(id){
+    var usuario = new Usuario();
+    usuario.readByID(id)
+    .then(response => {
+      if(response.data.state){
+        this.setState({
+          user: response.data.data
+        });
+        this.getUsers();
+      }else{
+        this.setState({
+          error: 'Oops ha habido un error, intenta de nuevo'
+        });
+      }
+    });
+  }
+
+  updateSelectedUser(id){
+    var usuario = new Usuario();
+    usuario.readByID(id)
+    .then(response => {
+      if(response.data.state){
+        this.setState({
+          selectedUser: response.data.data
+        });
+        this.getUsers();
+      }else{
+        this.setState({
+          error: 'Oops ha habido un error, intenta de nuevo'
+        });
+      }
+    });
+  }
+
   handleUserSelection(user){
     this.setState({
       selectedUser: user,
@@ -117,8 +152,8 @@ class App extends Component {
         { this.state.gui === 0 ? 'not allowed' : null }
         { this.state.permission && this.state.gui === 1 ? <Login handleLogin = {this.handleLogin} /> : null }
         { this.state.user !== null && this.state.gui === 2 ? <Documents handleSelfProfile = {this.handleSelfProfile} getUsers = {this.getUsers} users = {this.state.users} user = {this.state.user} handleUserSelection = {this.handleUserSelection} /> : null }
-        { this.state.selectedUser !== null && this.state.gui === 3 ? <SelectedUser user = {this.state.selectedUser} backHome = {this.backHome} /> : null }
-        { this.state.personalProfile !== null && this.state.gui === 4 ? <PersonalProfile user = {this.state.user} backHome = {this.backHome} logout = {this.handleLogout}/> : null }
+        { this.state.selectedUser !== null && this.state.gui === 3 ? <SelectedUser user = {this.state.user} selectedUser = {this.state.selectedUser} backHome = {this.backHome} updateSelectedUser = {this.updateSelectedUser} /> : null }
+        { this.state.personalProfile !== null && this.state.gui === 4 ? <PersonalProfile user = {this.state.user} backHome = {this.backHome} logout = {this.handleLogout} updateLoggedUser = {this.updateLoggedUser}/> : null }
       </div>
     );
   }

@@ -12,6 +12,7 @@ class UploadFile extends Component{
     };
     this.onChange = this.onChange.bind(this);
     this.toggle = this.toggle.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   toggle() {
@@ -29,9 +30,15 @@ class UploadFile extends Component{
   handleSubmit(e){
     e.preventDefault();
     var multimedia = new Multimedia();
-    multimedia.create(this.props.id, this.nombre_archivo.value, this.state.file).
-    then(response => {
-      console.log(response);
+    multimedia.create(this.props.id, this.nombre_archivo.value, this.state.file)
+    .then(response => {
+      if(response.data.state){
+        console.log(response);
+        this.props.updateLoggedUser(this.props.id);
+        this.setState({modal: false});
+      }else{
+        console.log('error');
+      }
     });
   }
 

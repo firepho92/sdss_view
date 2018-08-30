@@ -18,3 +18,7 @@ td{
 .table-wrapper{
   overflow-y: scroll;
 }
+
+.file-cursor-pointer{
+  cursor: pointer;
+}

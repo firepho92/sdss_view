@@ -16,6 +16,19 @@ class Usuario{
     });
   }
 
+  async readByID(id){
+    var res;
+    var serverConfig = new ServerConfig();
+    return new Promise((resolve, reject) => {
+      axios.get(serverConfig.serverAddress + 'usuario/byID?id=' + id)
+      .then(response => {
+        if(response.data)
+          resolve(res = {state: true, data: response.data});
+        resolve(res = {state: false, data: null});
+      });
+    });
+  }
+
   async login(nombre_usuario, password){
     var res;
     var serverConfig = new ServerConfig();
@@ -28,9 +41,13 @@ class Usuario{
         if(response.data)
           resolve(res = {state: true, data: response.data});
         resolve(res = {state: false, data: null});
+      })
+      .catch(error => {
+        resolve(res = {state: false, data: error});
       });
     });
   }
+
 }
 
 export default Usuario;
