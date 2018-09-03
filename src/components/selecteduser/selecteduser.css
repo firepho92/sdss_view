@@ -17,8 +17,5 @@ td{
 
 .table-wrapper{
   overflow-y: scroll;
-}
-
-.file-cursor-pointer{
-  cursor: pointer;
+  max-height: 400px;
 }

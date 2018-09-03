@@ -55,9 +55,12 @@ class FileComments extends Component{
             </div>
           </form>
           <br/>
-          {this.props.file.comentarios.map(comentario => {
-            return (<Comments key = {i++} comentario = {comentario}/>);
-          })}
+          <div className="comments-wrapper">
+            {this.props.file.comentarios.map(comentario => {
+              return (<Comments key = {i++} comentario = {comentario}/>);
+            })}
+          </div>
+
         </div>
       </div>
     );

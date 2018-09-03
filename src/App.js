@@ -6,6 +6,7 @@ import Documents from './components/documents/documents';
 import ServerConfig from './config/server_config';
 import SelectedUser from './components/selecteduser/selecteduser';
 import PersonalProfile from './components/personalprofile/personalprofile';
+import Footer from './components/footer/footer';
 import Usuario from './models/usuario';
 import './App.css';
 
@@ -154,6 +155,8 @@ class App extends Component {
         { this.state.user !== null && this.state.gui === 2 ? <Documents handleSelfProfile = {this.handleSelfProfile} getUsers = {this.getUsers} users = {this.state.users} user = {this.state.user} handleUserSelection = {this.handleUserSelection} /> : null }
         { this.state.selectedUser !== null && this.state.gui === 3 ? <SelectedUser user = {this.state.user} selectedUser = {this.state.selectedUser} backHome = {this.backHome} updateSelectedUser = {this.updateSelectedUser} /> : null }
         { this.state.personalProfile !== null && this.state.gui === 4 ? <PersonalProfile user = {this.state.user} backHome = {this.backHome} logout = {this.handleLogout} updateLoggedUser = {this.updateLoggedUser}/> : null }
+        <br/>
+        <Footer></Footer>
       </div>
     );
   }

@@ -44,10 +44,10 @@ class SelectedUser extends Component{
                   {this.props.selectedUser.multimedia.map(file => {
                     return (
                       <tr key={file._id}>
-                        <td onClick={e => this.handleClick(file)} className="file-cursor-pointer"><img style={{height: 30 + 'px'}} src={'http://localhost:8000/assets/icons/' + file.nombre_archivo.split('.').pop() + '.svg'} alt="icon"/></td>
-                        <td onClick={e => this.handleClick(file)} className="file-cursor-pointer">{file.nombre_multimedia}</td>
-                        <td onClick={e => this.handleClick(file)} className="file-cursor-pointer"><Moment format="DD/MM/YYYY">{file.creado}</Moment></td>
-                        <td onClick={e => this.handleClick(file)} className="file-cursor-pointer">{file.actualizado !== null ? <Moment format="DD/MM/YYYY">{file.actualizado}</Moment> : null}</td>
+                        <td onClick={e => this.handleClick(file)} className="cursor-pointer"><img style={{height: 30 + 'px'}} src={'http://localhost:8000/assets/icons/' + file.nombre_archivo.split('.').pop() + '.svg'} alt="icon"/></td>
+                        <td onClick={e => this.handleClick(file)} className="cursor-pointer">{file.nombre_multimedia}</td>
+                        <td onClick={e => this.handleClick(file)} className="cursor-pointer"><Moment format="DD/MM/YYYY">{file.creado}</Moment></td>
+                        <td onClick={e => this.handleClick(file)} className="cursor-pointer">{file.actualizado !== null ? <Moment format="DD/MM/YYYY">{file.actualizado}</Moment> : null}</td>
                         <td className="table-link"><a href={'http://localhost:8000/uploads/' + file.nombre_archivo}>Descargar</a></td>
                       </tr>
                     );
